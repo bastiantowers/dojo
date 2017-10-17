@@ -7,25 +7,31 @@ describe("congrats", () => {
     describe("B = P", function() {
         it("should get rendered congrats for Efecty", () => {
 
-            // chai.assert.deepEqual( congrats.asJSON(), {
-            //     "status": "success",
-            //     "substatus": null,
-            //     "heading": "¡Apúrate a pagar!",
-            //     "title": "Paga ${price} en ${paymentMethodName} para reservar tu compra",
-            // });
+            const order = Order.fromJSON(orders().efectyBuyEqualPay);
+            const congrats = new Congrats(order);
+
+            chai.assert.deepEqual( congrats.asJSON(), {
+                "status": "success",
+                "substatus": null,
+                "heading": "¡Apúrate a pagar!",
+                "title": "Paga ${price} en ${paymentMethodName} para reservar tu compra",
+            });
         });
 
         it("should render congrats for orders paid by credit cards shipped customly", () => {
 
-            // chai.assert.deepEqual( congrats.asJSON(), {
-            //     "status": "success",
-            //     "substatus": null,
-            //     "heading": "¡Tu pago está aprobado!",
-            //     "title": "Coordina con el vendedor el envío",
-            // });
+            const order = Order.fromJSON(orders().creditCardBuyEqualPayWithCustomShipping);
+            const congrats = new Congrats(order);
+
+            chai.assert.deepEqual( congrats.asJSON(), {
+                "status": "success",
+                "substatus": null,
+                "heading": "¡Tu pago está aprobado!",
+                "title": "Coordina con el vendedor el envío",
+            });
         });
 
-        it("should render congrats for orders paid by credit cards shipped customly", () => {
+        it.skip("should render congrats for orders paid by credit cards shipped with ME", () => {
 
             // chai.assert.deepEqual( congrats.asJSON(), {
             //     "status": "success",
@@ -42,7 +48,7 @@ describe("congrats", () => {
 function orders() {
 	return {
 		efectyBuyEqualPay:                          require('./params/efectyBuyEqualPay.json'),
-        creditCardBuyEqualPayWithCustomShipping:    require('./params/creditCardBuyEqualPayWithCustomShipping.json'),
-        creditCardByEqualPayShippedByME:            require('./params/creditCardByEqualPayShippedByME.json') 
+    creditCardBuyEqualPayWithCustomShipping:    require('./params/creditCardBuyEqualPayWithCustomShipping.json'),
+    creditCardByEqualPayShippedByME:            require('./params/creditCardByEqualPayShippedByME.json')
 	}
 };
