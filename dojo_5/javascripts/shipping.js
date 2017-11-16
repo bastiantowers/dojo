@@ -1,11 +1,14 @@
-function Shipping() {
+const CustomShipping = require('./customShipping');
 
+function Shipping(shippingFromAPI) {
+  this._shippingFromAPI = shippingFromAPI;
 }
 
 Shipping.fromJSON = function (shippingFromAPI) {
-  if(shippingFromAPI.shipment_type === "custom_shipping"){
-    return CustomShipping.fromJSON(shippingFromAPI);
-  }
+  const shippingJSON = shippingFromAPI.shipping;
+  return shippingJSON.shipment_type === "custom_shipping"
+      ? CustomShipping.fromJSON(shippingJSON)
+      : new Shipping(shippingJSON);
 };
 
 // For tests

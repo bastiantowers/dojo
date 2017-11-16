@@ -1,16 +1,17 @@
+const Payment = require('./payment');
+const Shipping = require('./shipping');
 
 function Order(payment, shipping) {
-  this.payment = payment;
-  this.shipping = shipping;
+  this._payment = payment;
+  this._shipping = shipping;
 }
 
 Order.fromJSON = function(orderFromAPI){
   return new Order(
-      Payment.fromJSON(orderFromAPI.payments[0]),
-      Shipping.fromJSON(orderFromAPI.shipping)
+      Payment.fromJSON(orderFromAPI),
+      Shipping.fromJSON(orderFromAPI)
   );
 };
-
 
 // For tests
 var window = window || undefined;

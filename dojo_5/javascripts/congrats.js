@@ -1,14 +1,22 @@
-function Congrats() {
-
+function Congrats(order) {
+  this._order = order;
 }
 
 Congrats.prototype.asJSON = function(){
   return {
-    "status": "success",
-    "substatus": null,
-    "heading": "¡Apúrate a pagar!",
-    "title": "Paga ${price} en ${paymentMethodName} para reservar tu compra",
-  };
+    "status" : "success",
+    "substatus" : null,
+    "heading" : this.getHeadingAsString(),
+    "title" : this.getTitleAsString()
+  }
+};
+
+Congrats.prototype.getHeadingAsString = function(){
+  return this._order._payment.heading;
+};
+
+Congrats.prototype.getTitleAsString = function() {
+  return this._order._payment.title;
 };
 
 // For tests

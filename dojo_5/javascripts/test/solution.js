@@ -31,14 +31,17 @@ describe("congrats", () => {
             });
         });
 
-        it.skip("should render congrats for orders paid by credit cards shipped with ME", () => {
+        it("should render congrats for orders paid by credit cards shipped with ME", () => {
 
-            // chai.assert.deepEqual( congrats.asJSON(), {
-            //     "status": "success",
-            //     "substatus": null,
-            //     "heading": "¡Excelente compra!",
-            //     "title": "El jueves 2017-05-18T00:00:00.000-05:00. te llegará el producto",
-            // });
+            const order = Order.fromJSON(orders().creditCardByEqualPayShippedByME);
+            const congrats = new Congrats(order);
+
+            chai.assert.deepEqual( congrats.asJSON(), {
+                "status": "success",
+                "substatus": null,
+                "heading": "¡Excelente compra!",
+                "title": "El jueves 2017-05-18T00:00:00.000-05:00. te llegará el producto",
+            });
         });
 
     });
