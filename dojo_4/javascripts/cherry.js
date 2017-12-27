@@ -1,9 +1,8 @@
 function Cherry() {
-  // this._unitsWeight = 1
 }
 
-Cherry.prototype.addWeight = function (weight) {
-  return weight.duplicate();
+Cherry.prototype.addWeight = function (toThisBeing) {
+  return toThisBeing._weight.duplicate();
 };
 
 // Expose

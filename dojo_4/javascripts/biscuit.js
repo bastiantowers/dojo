@@ -1,9 +1,8 @@
 function Biscuit() {
-  // this._unitsWeight = 1
 }
 
-Biscuit.prototype.addWeight = function (weight) {
-  return weight.incrementOnce();
+Biscuit.prototype.addWeight = function (toThisBeing) {
+  return toThisBeing._weight.incrementOnce();
 };
 
 // Expose

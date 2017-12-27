@@ -1,5 +1,5 @@
 function Weight(weightUnits) {
-  this._units = weightUnits || 0;
+  this._units = weightUnits;
 }
 
 Weight.prototype.getWeight = function () {

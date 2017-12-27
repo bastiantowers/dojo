@@ -1,12 +1,15 @@
 const Weight = require('./weight');
+const AliveState = require('./aliveState');
 
 function Pacman(weightUnits) {
-  this._weight = new Weight(weightUnits);
+  this._weight = new Weight(weightUnits || 1);
+  //this._alive = true;
+  //this._lifeState = "alive"; // ["alive", "dead", "super"]
+  this._lifeState = new AliveState();
 }
 
 Pacman.prototype.eat = function(food){
-  //this._weight.add(food);
-  food.addWeight(this._weight);
+  food.addWeight(this);
 };
 
 Pacman.prototype.getWeight = function(){
@@ -19,6 +22,10 @@ Pacman.prototype.isFatterThan = function (thisWeight) {
 
 Pacman.prototype.isTwoTimesFatterThan = function (thisWeight) {
   return this.getWeight() === thisWeight * 2;
+};
+
+Pacman.prototype.bumpsWith = function (thing) {
+  thing.kill(this);
 };
 
 // Expose
