@@ -20,10 +20,10 @@ describe("Dojo 11", () => {
         // Paso 2 -> Envio a Villa Urquiza 01_01
         // Zeplin: https://zpl.io/25zKgWV
         const seleccionDeEnvio = new SeleccionDeEnvio(false);
-        const proximoPaso = seleccionDeEnvio.envioADomicilio();
+        const nextStep = seleccionDeEnvio.envioADomicilio();
 
         // Zeplin: https://zpl.io/br1Km7L
-        expect(proximoPaso instanceof SeleccionDeMedioDePago).to.be.true;
+        expect(nextStep instanceof SeleccionDeMedioDePago).to.be.true;
     });
 
     it('cuando se selecciona envio a domicilio desde la review el proximo paso debería ser review', () => {
@@ -31,9 +31,9 @@ describe("Dojo 11", () => {
 
         const seleccionDeEnvio = review.modificarEnvio();
 
-        const proximoPaso = seleccionDeEnvio.envioADomicilio();
+        const nextStep = seleccionDeEnvio.envioADomicilio();
 
-        expect(proximoPaso instanceof Review).to.be.true;
+        expect(nextStep instanceof Review).to.be.true;
     });
 
     it('cuando se selecciona envio a sucursal desde la review el proximo paso debería ser SucursalDeCorreo', () => {
@@ -43,9 +43,9 @@ describe("Dojo 11", () => {
         const seleccionDeEnvio = review.modificarEnvio();
 
         // Zeplin: https://zpl.io/V10Ye52
-        const proximoPaso = seleccionDeEnvio.retiroEnCorreo();
+        const nextStep = seleccionDeEnvio.retiroEnCorreo();
 
-        expect(proximoPaso instanceof MapaDeSucursales).to.be.true;
+        expect(nextStep instanceof MapaDeSucursales).to.be.true;
     });
 });
 
