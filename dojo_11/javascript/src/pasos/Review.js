@@ -1,4 +1,4 @@
-import SeleccionDeEnvio from './SeleccionDeEnvio';
+import SeleccionDeEnvioReview from './SeleccionDeEnvioReview';
 import PasoDeCheckout from './PasoDeCheckout';
 
 class Review extends PasoDeCheckout {
@@ -7,7 +7,8 @@ class Review extends PasoDeCheckout {
     }
 
     modificarEnvio() {
-        return new SeleccionDeEnvio(true);
+        //return new SeleccionDeEnvio(true);
+        return new SeleccionDeEnvioReview();
     }
 }
 

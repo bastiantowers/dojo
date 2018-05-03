@@ -1,7 +1,5 @@
 class PasoDeCheckout {
-    constructor(editMode) {
-        this.editMode = editMode;
-    }
+    constructor() {}
 }
 
 export default PasoDeCheckout;

@@ -29,9 +29,9 @@ describe("Dojo 11", () => {
     it('cuando se selecciona envio a domicilio desde la review el proximo paso debería ser review', () => {
         const review = new Review();
 
-        const seleccionDeEnvio = review.modificarEnvio();
+        const SeleccionDeEnvioReview = review.modificarEnvio();
 
-        const proximoPaso = seleccionDeEnvio.envioADomicilio();
+        const proximoPaso = SeleccionDeEnvioReview.envioADomicilio();
 
         expect(proximoPaso instanceof Review).to.be.true;
     });
@@ -40,10 +40,10 @@ describe("Dojo 11", () => {
         // Zeplin: https://zpl.io/be48RDa
         const review = new Review();
 
-        const seleccionDeEnvio = review.modificarEnvio();
+        const seleccionDeEnvioReview = review.modificarEnvio();
 
         // Zeplin: https://zpl.io/V10Ye52
-        const proximoPaso = seleccionDeEnvio.retiroEnCorreo();
+        const proximoPaso = seleccionDeEnvioReview.retiroEnCorreo();
 
         expect(proximoPaso instanceof MapaDeSucursales).to.be.true;
     });
