@@ -1,5 +1,7 @@
 class PasoDeCheckout {
-    constructor() {}
+    constructor() {
+        this.medioDePago;
+    }
 }
 
 export default PasoDeCheckout;

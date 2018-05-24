@@ -12,6 +12,10 @@ class SeleccionDeEnvio extends PasoDeCheckout {
         const nextStep = new SeleccionDeMedioDePago();
         return nextStep;
     }
+
+    retiroEnCorreo() {
+        return new MapaDeSucursales();
+    }
 }
 
 export default SeleccionDeEnvio;

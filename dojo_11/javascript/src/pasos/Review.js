@@ -1,5 +1,6 @@
 import SeleccionDeEnvioReview from './SeleccionDeEnvioReview';
 import PasoDeCheckout from './PasoDeCheckout';
+import Inconsistencia from './../Inconsistencia'
 
 class Review extends PasoDeCheckout {
     constructor() {
@@ -7,7 +8,6 @@ class Review extends PasoDeCheckout {
     }
 
     modificarEnvio() {
-        //return new SeleccionDeEnvio(true);
         return new SeleccionDeEnvioReview();
     }
 }
