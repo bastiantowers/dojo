@@ -12,4 +12,12 @@ ClassRoomCalendarFinder.prototype.getFreeClassroomByCapacity = function(classroo
   return resultantClassroom;
 };
 
+ClassRoomCalendarFinder.prototype.getFreeClassroomByCapacityAndM2 = function(classrooms, capacityNeeded, squaresNeeded){
+  let resultantClassroom = new ClassRoomUnavailable();
+  classrooms.forEach(function(classroom){
+    resultantClassroom = classroom.returnIfAppliesByCapacityAndM2OrDefault(capacityNeeded, squaresNeeded, resultantClassroom);
+  });
+  return resultantClassroom;
+};
+
 module.exports = ClassRoomCalendarFinder;
