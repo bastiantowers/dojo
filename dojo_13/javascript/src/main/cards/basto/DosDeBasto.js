@@ -2,7 +2,7 @@ class DosDeBasto {
   constructor() {}
 
   challenge(card) {
-    return card.challengeDosDeBasto();
+    return card.challengeDosDeBasto(this);
   }
 }
 

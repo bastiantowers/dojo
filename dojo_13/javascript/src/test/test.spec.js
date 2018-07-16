@@ -1,10 +1,16 @@
 import { expect, assert } from 'chai';
 
-import AnchoDeEspada from './../main/AnchoDeEspada'
-import AnchoDeBasto from './../main/AnchoDeBasto'
-import SieteDeEspada from './../main/SieteDeEspada'
-import DosDeBasto from './../main/DosDeBasto'
-import SieteDeCopa from './../main/SieteDeCopa'
+import Envido from '../main/Envido'
+
+import AnchoDeEspada from '../main/cards/espada/AnchoDeEspada'
+import AnchoDeBasto from './../main/cards/basto/AnchoDeBasto'
+import SieteDeEspada from '../main/cards/espada/SieteDeEspada'
+import DosDeBasto from '../main/cards/basto/DosDeBasto'
+import TresDeBasto from '../main/cards/basto/TresDeBasto'
+import SieteDeCopa from '../main/cards/copa/SieteDeCopa'
+import CincoDeCopa from '../main/cards/copa/CincoDeCopa'
+import CincoDeOro from '../main/cards/oro/CincoDeOro'
+
 
 describe('dojo', () => {
 
@@ -33,57 +39,19 @@ describe('dojo', () => {
     assert.equal(anchoDeBasto.challenge(sieteDeEspada), anchoDeBasto);
   });
 
-  it("en el envido el siete de basto le gana al ancho de espada", () => {
-    const envido1 = new Envido(new AnchoDeEspada(), new SieteDeEspada(), new CuatroDeCopa());
-    const envido2 = new Envido(new AnchoDeBasto(), new TresDeBasto(), new CincoDeOro());
-
-    assert.equal(envido1.challenge(envido2), envido1);
-  });
-
-  // TODO: fix
-  it.skip("el 2 de basto le gana al 7 de copa", () => {
+  it("el 2 de basto le gana al 7 de copa", () => {
     const dosDeBasto = new DosDeBasto();
     const sieteDeCopa = new SieteDeCopa();
 
     assert.equal(dosDeBasto.challenge(sieteDeCopa), dosDeBasto);
   });
 
+  it("Dadas dos triadas conformadas por espada1 espada7 copa5 y espada1 espada10 copa5 " +
+      "ante un envido debe ganar la primer triada de cartas", () => {
+    const envido1 = new Envido(new AnchoDeEspada(), new SieteDeEspada(), new CincoDeCopa());
+    const envido2 = new Envido(new AnchoDeBasto(), new TresDeBasto(), new CincoDeOro());
 
-
-  /*it('should return the correct sensei name', () => {
-    const dojo = new Dojo({
-      sensei: 'Diego'
-    });
-
-    const expected = '{"sensei":"Diego"}';
-
-    expect(dojo.toJSON()).to.be.equal(expected);
+    assert.equal(envido1.challenge(envido2), envido1);
   });
-
-  it("it should not be equal", () => {
-    const dojoSouth = new Dojo({ sensei: 'Diego' });
-    const dojoNorth = new Dojo({ sensei: 'Juan' });
-
-    assert.equal(dojoSouth.isEqual(dojoNorth), false);
-  });
-
-  it("it should be equal", () => {
-    const dojoSouth = new Dojo({ sensei: 'Diego' });
-    const dojoNorth = new Dojo({ sensei: 'Diego' });
-
-    assert.equal(dojoSouth.isEqual(dojoNorth), true);
-  });
-
-  it("it should throw an exception", () => {
-    const dojito = new Dojo();
-
-    assert.throws(() => {	dojito.explode() });
-  });
-
-  it("it should throw an exception", () => {
-    const dojito = new Dojo();
-
-    assert.throws(() => {	dojito.explode() });
-  });*/
 
 });
