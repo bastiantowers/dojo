@@ -10,6 +10,7 @@ import TresDeBasto from '../main/cards/basto/TresDeBasto'
 import SieteDeCopa from '../main/cards/copa/SieteDeCopa'
 import CincoDeCopa from '../main/cards/copa/CincoDeCopa'
 import CincoDeOro from '../main/cards/oro/CincoDeOro'
+import CuatroDeEspada from "../main/cards/espada/CuatroDeEspada";
 
 
 describe('dojo', () => {
@@ -46,12 +47,20 @@ describe('dojo', () => {
     assert.equal(dosDeBasto.challenge(sieteDeCopa), dosDeBasto);
   });
 
-  it("Dadas dos triadas conformadas por espada1 espada7 copa5 y espada1 espada10 copa5 " +
+  it("Dadas dos triadas conformadas por espada1 espada7 copa5 y basto1 basto3 oro5 " +
       "ante un envido debe ganar la primer triada de cartas", () => {
     const envido1 = new Envido(new AnchoDeEspada(), new SieteDeEspada(), new CincoDeCopa());
     const envido2 = new Envido(new AnchoDeBasto(), new TresDeBasto(), new CincoDeOro());
 
     assert.equal(envido1.challenge(envido2), envido1);
   });
+
+    it("Dadas dos triadas conformadas por espada1 espada7 copa5 y basto1 espada4 oro5 " +
+        "ante un envido debe ganar la primer triada de cartas", () => {
+        const envido1 = new Envido(new AnchoDeEspada(), new SieteDeEspada(), new CincoDeCopa());
+        const envido2 = new Envido(new AnchoDeBasto(), new CuatroDeEspada(), new CincoDeOro());
+
+        assert.equal(envido1.challenge(envido2), envido1);
+    });
 
 });

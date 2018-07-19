@@ -2,7 +2,7 @@ import Basto from './Basto'
 class TresDeBasto extends Basto {
   constructor() {
     super();
-    this.envidoValue = 1;
+    this.envidoValue = 3;
   }
 
   challenge(card) {

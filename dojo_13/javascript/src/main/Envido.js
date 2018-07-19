@@ -9,26 +9,29 @@ class Envido {
     //new AnchoDeEspada(), new SieteDeEspada(), new CincoDeCopa()
     const myEnvido = this.getMejorEnvidoPosible();
     const otherEnvido = envido.getMejorEnvidoPosible();
+    console.log(this.cards);
+    console.log(myEnvido);
+    console.log(envido.cards);
+    console.log(otherEnvido);
     return myEnvido > otherEnvido ? this : envido;
   }
 
   getMejorEnvidoPosible() {
     const samePalo = this.getCardsWithSamePalo();
-    return this.getSamePaloEnvidoOrDefault(samePalo, this.getHighestEnvidoValue);
+    return this.getSamePaloEnvidoOrDefault(samePalo);
   }
 
-  getSamePaloEnvidoOrDefault(samePalo, defaultFunction) {
+  getSamePaloEnvidoOrDefault(samePalo) {
       let value = 0;
       samePalo.forEach(cardIndex => {
-        console.log(this.cards[cardIndex]);
-        console.log(this.cards[cardIndex].getEnvidoValue());
         value += this.cards[cardIndex].getEnvidoValue();
       });
-      return value ? value : defaultFunction();
+      return value ? value + 20 : this.getHighestEnvidoValue();
   }
 
   getHighestEnvidoValue() {
       let value = 0;
+      console.log(this.cards);
       this.cards.forEach((card) => {
           if(card.getEnvidoValue() > value) {
             value = card.getEnvidoValue();

@@ -2,7 +2,7 @@ import Oro from './Oro'
 class CincoDeOro extends Oro{
   constructor() {
     super();
-    this.envidoValue = 1;
+    this.envidoValue = 5;
   }
 
   challenge(card) {
