@@ -3,7 +3,7 @@ class Espada {
   }
 
   getPalo() {
-    return this;
+    return Espada;
   }
 }
 

@@ -3,7 +3,7 @@ class Copa {
   }
 
   getPalo() {
-    return this;
+    return Copa;
   }
 }
 

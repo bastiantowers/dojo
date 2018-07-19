@@ -2,7 +2,7 @@ import Espada from './Espada'
 class AnchoDeEspada extends Espada {
   constructor() {
     super();
-    const envidoValue = 1;
+    this.envidoValue = 1;
   }
 
   challenge() {
@@ -15,10 +15,6 @@ class AnchoDeEspada extends Espada {
 
   getEnvidoValue() {
     return this.envidoValue;
-  }
-
-  getPalo() {
-    return super.getPalo();
   }
 }
 
